@@ -1,3 +1,208 @@
+## 4.8.4 (2020-08-06)
+
+### Enhancements:
+
+* Add `linux-ppc64` as a recognized platform (#9797, #9877)
+* Add `linux-s390x` as a recognized platform (#9933, #10051)
+* Add spinner to pip installer (#10032)
+* Add support for running conda in PyPy (#9764)
+* Support creating conda environments using remote specification files (#9835)
+* Allow request retries on various HTTP errors (#9919)
+* Add `compare` command for environments against a specification file (#10022)
+* Add (preliminary) support for JSON-format activation (#8727)
+* Properly handle the `CURL_CA_BUNDLE` environment variable (#10078)
+* More uniformly handle `$CONDA_PREFIX` when exporting environments (#10092)
+* Enable trailing `_` to anchor OpenSSL-like versions (#9859)
+* Replace `listdir` and `glob` with `scandir` (#9889)
+* Ignore virtual packages when searching for constrained packages (#10117)
+* Add virtual packages to be considered in the solver (#10057)
+
+### Bug fixes:
+
+* Prevent `remove --all` from deleting non-environment directories (#10086)
+* Prevent `create --dry-run --yes` from deleting existing environments (#10090)
+* Remove extra newline from environment export file (#9649)
+* Print help on incomplete `conda env config` command rather than crashing (#9660)
+* Correctly set exit code/errorlevel when `conda run` exits (#9665)
+* Send "inconsistent environment" warnings to stderr to avoid breaking JSON output (#9738)
+* Fix output formatting from post-link scripts (#9841)
+* Fix URL parsing for channel subdirs (#9844)
+* Fix `conda env export -f` sometimes producing empty output files (#9909)
+* Fix handling of Python releases with two-digit minor versions (#9999)
+* Do not use gid to determine if user is an admin on \*nix platforms (#10002)
+* Suppress spurious xonsh activation warnings (#10005)
+* Fix crash when running `conda update --all` on a nonexistent environment (#10028)
+* Fix collections import for Python 3.8 (#10093)
+* Fix regex-related deprecation warnings (#10093, #10096)
+* Fix logic error when running under Python 2.7 on 64-bit platforms (#10108)
+* Fix Python 3.8 leaked semaphore issue (#10115)
+
+### Docs:
+
+* Fix formatting and typos (#9623, #9689, #9898, #10042)
+* Correct location for yum repository configuration files (#9988)
+* Clarify usage for the `--channel` option (#10054)
+* Clarify Python is not installed by default into new environments (#10089)
+
+### Miscellaneous:
+
+* Fixes to tests and CI pipelines (#9842, #9863, #9938, #9960, #10010)
+* Remove conda-forge dependencies for developing conda (#9857, #9871)
+* Audit YAML usage for `safe_load` vs `round_trip_load` (#9902)
+
+### Contributors:
+
+* @alanhdu
+* @angloyna
+* @Anthchirp
+* @Arrowbox
+* @bbodenmiller
+* @beenje
+* @bernardoduarte
+* @birdsarah
+* @bnemanich
+* @chenghlee
+* @ChihweiLHBird
+* @cjmartian
+* @ericpre
+* @error404-beep
+* @esc
+* @hartb
+* @hugobuddel
+* @isuruf
+* @jjhelmus
+* @kalefranz
+* @mingwandroid
+* @mlline00
+* @mparry
+* @mrocklin
+* @necaris
+* @pdnm
+* @pradghos
+* @ravigumm
+* @Reissner
+* @scopatz
+* @sidhant007
+* @songmeixu
+* @speleo3
+* @tomsaleeba
+* @WinstonPais
+
+
+## 4.8.3 (2020-03-13)
+
+### Docs:
+
+* Add release notes for 4.8.2 to docs (#9632)
+* Fix typos in docs (#9637, #9643)
+* Grammatical and formatting changes (#9647)
+
+### Bug fixes:
+
+* Account for channel is specs (#9748)
+
+### Contributors:
+
+* @bernardoduarte
+* @forrestwaters
+* @jjhelmus
+* @msarahan
+* @rrigdon
+* @timgates42
+
+
+## 4.8.2 (2020-01-24)
+
+### Enhancements:
+
+* Solver messaging improvements (#9560)
+
+### Docs:
+
+* Added precedence and conflict info  (#9565)
+* Added how to set env variables with config API  (#9536)
+* Updated user guide, deleted Overview, minor clean up (#9581)
+* Add code of conduct (#9601, #9602, #9603, #9603, #9604 #9605)
+
+### Bug fixes:
+
+* change fish prompt only if changeps1 is true  (#7000)
+* make frozendict JSON serializable (#9539)
+* Conda env create empty dir (#9543)
+
+
+### Contributors:
+
+* @msarahan
+* @jjhelmus
+* @rrigdon
+* @soapy1
+* @teake
+* @csoja
+* @kfranz
+
+## 4.8.1 (2019-12-19)
+
+### Enhancements:
+
+* improve performance for conda run by avoiding Popen.communicate  (#9381)
+* Put conda keyring in /usr/share/keyrings on Debian (#9424)
+* refactor common.logic to fix some bugs and prepare for better modularity (#9427)
+* Support nested configuration  (#9449)
+* Support Object configuration parameters  (#9465)
+* Use freeze_installed to speed up conda env update  (#9511)
+* add networking args to conda env create (#9525)
+
+### Docs:
+
+* fix string concatenation running words together regarding CONDA_EXE  (#9411)
+* Fix typo ("list" -> "info")  (#9433)
+* typo in condarc key envs_dirs  (#9478)
+* Clarify channel priority and package sorting (#9492)
+* improve description of DLL loading verification and activating environments  (#9453)
+* Installing with specific build number  (#9534)
+
+### Bug fixes:
+
+* Fix calling python api run_command with list and string arguments  (#9331)
+* revert init bash completion  (#9421)
+* set tmp to shortened path that excludes spaces (#9409)
+* avoid function redefinition upon resourcing conda.fish  (#9444)
+* propagate pip error level when creating envs with conda env (#9460)
+* fix incorrect chown call (#9464)
+* Add subdir to PackageRecord dist_str  (#9418)
+* Fix running conda activate in multiple processes on windows  (#9477)
+* Don't check in pkgs for trash (#9472)
+* remove setuptools from run_constrained in recipe  (#9485)
+* Fix `__conda_activate` function to correctly return exit code  (#9532)
+* fix overly greedy capture done by subprocess for conda run  (#9537)
+
+
+### Contributors:
+
+* @AntoinePrv
+* @brettcannon
+* @bwildenhain
+* @cjmartian
+* @felker
+* @forrestwaters
+* @gilescope
+* @isuruf
+* @jeremyjliu
+* @jjhelmus
+* @jhultman
+* @marcuscaisey
+* @mbargull
+* @mingwandroid
+* @msarahan
+* @okhoma
+* @osamoylenko
+* @rrigdon
+* @rulerofthehuns
+* @soapy1
+* @tartansandal
+
+
 ## 4.8.0rc0 (2019-11-04)
 
 ### Enhancements:
